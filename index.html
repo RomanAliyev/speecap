@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name = "viewport" content = "width=device-width, initial-scale=1" />
+        <title>Speecap: Voice recording without hissing noise</title>
+        <meta name="author" content="Roman Aliyev" />
+        <meta name="description" content="Speecap is a high-quality voice recording app for iPhone, iPad and iPod touch. Speecap automatically detects and eliminates background hissing noise while recording. Start making great voice recordings with Speecap." />
+        <meta name="keywords" content="speecap,speech,audio,audio,recorder,capture,high,quality,static,dictaphone,hiss,remove,removal,reduction,cancel,cancelation,iphone,ipad,ipod,ios,interview,podcast,professional" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <style>
+            * {
+                margin: 0;
+                -ms-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box
+                padding: 0;
+            }
+            body {
+                font: 16px/1.4 'Arial', sans-serif;
+                color: #4A4A4A;
+            }
+            ul {
+                padding-left: 2em;
+            }
+            a {
+                color: #0095d8;
+            }
+            .has-blue-background {
+                background-image: url("bg.png");
+                background-repeat: repeat;
+            }
+            .playing:before {
+                content: '🔊 ';
+            }
+        </style>
+    </head>
+    <body>
+        <div class="has-blue-background" style="text-align: center; padding: 70px 20px; color: #fff;">
+            <img src="logo.png" />
+            <div style="font-size: 3em; font-weight: bold;">Speecap</div>
+            <div style="font-size: 1.5em">Voice recording<br>without hissing noise</div>
+            <a href="https://itunes.apple.com/app/id1213395589"><img style="margin: 32px 0;" src="AppStoreBadge.svg" path-fixed=""></a>
+        </div>
+        <div style="text-align:center; margin-top: -70px; margin-bottom: 70px;">
+            <img style="display:inline-block; vertical-align: middle; margin: 10px;" width="284" alt="" src="phone.png" />
+            <div style="display:inline-block; vertical-align: middle; width: 320px; text-align: left; padding: 20px;">
+                <div style="margin-bottom: 0.5em; font-size: 1.5em;">High-quality voice recording app for iPhone, iPad and iPod touch</div>
+                <p>Speecap automatically detects and eliminates background hissing noise while recording. No need of expensive professional microphone. Easily make clean speech recordings with any cheap microphone.</p>
+                <br/>
+                <audio id="audio1" src="demo1.wav" type="audio/wav"></audio>
+                <audio id="audio2" src="demo2.wav" type="audio/wav"></audio>
+                <audio id="audio3" src="demo3.wav" type="audio/wav"></audio>
+                <a style="display:block; margin-left: 2em; padding-bottom: 0.5em;" id="audio1-control" href="javascript:void(0);">Demo recorded with<br/>iPhone built-in microphone</a>
+                <a style="display:block; margin-left: 2em; padding-bottom: 0.5em;" id="audio2-control" href="javascript:void(0);">Demo recorded with<br/>$3 wired headset</a>
+                <a style="display:block; margin-left: 2em;" id="audio3-control" href="javascript:void(0);">Demo recorded with<br/>$2 conference microphone</a>
+                
+
+                <script type="text/javascript">
+                    var audio1 = document.getElementById("audio1");
+                    var audio2 = document.getElementById("audio2");
+                    var audio3 = document.getElementById("audio3");
+                    var audio1_control = document.getElementById("audio1-control");
+                    var audio2_control = document.getElementById("audio2-control");
+                    var audio3_control = document.getElementById("audio3-control");
+                    
+                    audio1_control.onclick = function() {
+                        audio2.pause();
+                        audio3.pause();
+                        audio1.currentTime = 0;
+                        audio1.paused ? audio1.play() : audio1.pause();
+                    }
+                    audio2_control.onclick = function() {
+                        audio1.pause();
+                        audio3.pause();
+                        audio2.currentTime = 0;
+                        audio2.paused ? audio2.play() : audio2.pause();
+                    }
+                    audio3_control.onclick = function() {
+                        audio1.pause();
+                        audio2.pause();
+                        audio3.currentTime = 0;
+                        audio3.paused ? audio3.play() : audio3.pause();
+                    }
+                
+                audio1.onplaying = function() {
+                    audio1_control.style.fontWeight = "bold";
+                    audio1_control.className = "playing";
+                };
+                audio1.onpause = function() {
+                    audio1_control.style.fontWeight = "";
+                    audio1_control.className = "";
+                };
+                audio2.onplaying = function() {
+                    audio2_control.style.fontWeight = "bold";
+                    audio2_control.className = "playing";
+                };
+                audio2.onpause = function() {
+                    audio2_control.style.fontWeight = "";
+                    audio2_control.className = "";
+                };
+                audio3.onplaying = function() {
+                    audio3_control.style.fontWeight = "bold";
+                    audio3_control.className = "playing";
+                };
+                audio3.onpause = function() {
+                    audio3_control.style.fontWeight = "";
+                    audio3_control.className = "";
+                };
+                </script>
+            </div>
+        </div>
+        <div style="text-align:center; background-color: #F1F7FF; padding: 70px 0;">
+            <div style="display:inline-block; vertical-align: top; width: 320px; text-align: left; padding: 20px;">
+                <div style="margin-bottom: 10px; font-size: 1.2em; font-weight: bold;">No pro microphone required</div>
+                <p>Speecap was specially designed to record speech with your conference, device built-in or any other cheap microphone.</p>
+            </div>
+            <div style="display:inline-block; vertical-align: top; width: 320px; text-align: left; padding: 20px;">
+                <div style="margin-bottom: 10px; font-size: 1.2em; font-weight: bold;">No configuration required</div>
+                <p>You don&rsquo;t need to create noise profile or adjust noise-gate filter. Speecap automatically does all this stuff for you. Just tap to start recording and tap &laquo;Done&raquo; to stop it. Easy.</p>
+            </div>
+            <div style="display:inline-block; vertical-align: top; width: 320px; text-align: left; padding: 20px;">
+                <div style="margin-bottom: 10px; font-size: 1.2em; font-weight: bold;">No post-processing required</div>
+                <p>You don&rsquo;t need to do noise cancelation while composing your voice records into podcast. Speecap does all required noise cancelations for you while recording.</p>
+            </div>
+            <br>
+            <a style="display: inline-block; margin: 20px 20px 0 20px; border: 3px solid; border-radius: 0.25em; padding: 0.75em 1.25em; font-size: 1.2em; text-decoration: none;" href="https://itunes.apple.com/app/id1213395589">Start making great voice recordings with Speecap</a>
+        </div>
+        <div id="faq" style="margin: 0 auto; padding: 70px 20px; max-width: 800px;">
+            <div style="font-size: 2em; font-weight: 200; text-align: center;">FAQ</div>
+            <div style="margin: 2em 0 0.25em 0; font-size: 1.2em; font-weight: bold; color: #3c4c6c;">The recording quality is not good enough. What&rsquo;s the problem?</div>
+            <p>The common tips about quality are:</p>
+            <ul>
+                <li>Place your microphone at a distance of 2-8 inches (5-20 centimeters) to the speaker’s mouth.</li>
+                <li>To minimize the breathing noise use pop filter or put your microphone at an angle, pointing at the speaker’s mouth, about 45 degrees to the side.</li>
+                <li>Also make sure there is no dust in the microphone holes.</li>
+                <li>Moreover, try to avoid ambient noise as much as you can.</li>
+            </ul>
+            <div style="margin: 2em 0 0.25em 0; font-size: 1.2em; font-weight: bold; color: #3c4c6c;">What file format does Speecap use for the recording?</div>
+            <p>Speecap uses standard uncompressed LPCM format. The audio data stored in WAV files with 44100Hz/16bit/mono quality. Speecap supports BWF and RF64 specifications.</p>
+    
+            <div style="margin: 2em 0 0.25em 0; font-size: 1.2em; font-weight: bold; color: #3c4c6c;">How much can I record using Speecap?</div>
+            <p>The record time depends on your device storage in the following way: 8 GB device may contain about 10 hours, 16 GB - 40 hours, 32 GB - 90 hours, 64 GB - 200 hours, 128 GB - 400 hours, 256 GB - 800 hours. Speecap has no limits per recording.</p>
+
+
+            <div style="margin: 2em 0 0.25em 0; font-size: 1.2em; font-weight: bold; color: #3c4c6c;">Incoming calls and notifications sometimes interrupt recordings. How to make recordings without the interruptions?</div>
+            <p>To completely silence your iOS device you need to do the following:</p>
+            <ul>
+                <li>In the Settings app or in the control center turn on Airplane Mode and Do Not Disturb.</li>
+                <li>In the Calendar app, ensure that there are no event alarms enabled during the planned recording period.</li>
+                <li>In the Clock app, ensure that no clock alarms are enabled during the planned recording period.</li>
+                <li>For devices that have a Silent switch (called the Ring/Silent switch on iPhone), do not move the switch during the recording. When you change to Silent mode, an iPhone may vibrate, for example, depending on user settings.</li>
+                <li>Do not plug in or unplug a headset during recording. Likewise, do not dock or undock the device during recording.</li>
+                <li>Do not plug the device into a power source during the recording. When an iOS device gets plugged into power, it may beep or vibrate, according to the device and to user settings.</li>
+            </ul>
+        </div>
+        <div style="margin: 0 auto; padding: 30px 20px; max-width: 800px; font-size: 0.75em; border-top: 1px dotted rgba(0, 0, 0, 0.1) ">
+            <p>Copyright &copy; 2017 Roman Aliyev. All rights reserved. | Email: <a href="mailto:speecap@gmail.com">speecap@gmail.com</a></p>
+        </div>
+    </body>
+</html>
